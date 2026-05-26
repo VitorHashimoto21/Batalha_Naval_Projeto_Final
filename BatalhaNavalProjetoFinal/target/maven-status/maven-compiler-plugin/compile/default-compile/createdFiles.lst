@@ -1,0 +1,16 @@
+br/com/batalhanaval/Coordenada.class
+br/com/batalhanaval/Jogo.class
+br/com/batalhanaval/Config.class
+br/com/batalhanaval/JogadorCPU.class
+br/com/batalhanaval/Database.class
+br/com/batalhanaval/Main.class
+br/com/batalhanaval/ResultadoTiro.class
+br/com/batalhanaval/JogadorHumano.class
+br/com/batalhanaval/InterfaceTerminal$1.class
+br/com/batalhanaval/ResultadoValidacao.class
+br/com/batalhanaval/InterfaceTerminal.class
+br/com/batalhanaval/Tabuleiro.class
+br/com/batalhanaval/PartidaRepository.class
+br/com/batalhanaval/ValidadorDeFrota.class
+br/com/batalhanaval/Jogador.class
+br/com/batalhanaval/Navio.class
