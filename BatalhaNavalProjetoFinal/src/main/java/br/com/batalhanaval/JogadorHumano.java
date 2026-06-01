@@ -1,19 +1,31 @@
 
 package br.com.batalhanaval;
 
-import java.util.Scanner;
-
 public class JogadorHumano extends Jogador {
 
-    private final Scanner sc = new Scanner(System.in);
+    private Coordenada proximoTiro;
 
     public JogadorHumano(String nome) {
         super(nome);
     }
 
+    public void definirProximoTiro(Coordenada tiro) {
+        this.proximoTiro = tiro;
+    }
+
     @Override
     public Coordenada jogar() {
-        System.out.print("Digite coordenada: ");
-        return Coordenada.parse(sc.nextLine());
+        if (proximoTiro == null) {
+            throw new IllegalStateException("Nenhuma coordenada definida para o jogador humano");
+        }
+
+        Coordenada tiro = proximoTiro;
+        proximoTiro = null;
+        return tiro;
+    }
+
+    @Override
+    public String tipo() {
+        return "HUMANO";
     }
 }

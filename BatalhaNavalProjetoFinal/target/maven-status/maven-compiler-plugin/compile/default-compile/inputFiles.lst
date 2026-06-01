@@ -2,14 +2,17 @@
 /workspaces/Batalha_Naval_Projeto_Final/BatalhaNavalProjetoFinal/src/main/java/br/com/batalhanaval/Coordenada.java
 /workspaces/Batalha_Naval_Projeto_Final/BatalhaNavalProjetoFinal/src/main/java/br/com/batalhanaval/Database.java
 /workspaces/Batalha_Naval_Projeto_Final/BatalhaNavalProjetoFinal/src/main/java/br/com/batalhanaval/InterfaceTerminal.java
+/workspaces/Batalha_Naval_Projeto_Final/BatalhaNavalProjetoFinal/src/main/java/br/com/batalhanaval/Jogada.java
 /workspaces/Batalha_Naval_Projeto_Final/BatalhaNavalProjetoFinal/src/main/java/br/com/batalhanaval/Jogador.java
 /workspaces/Batalha_Naval_Projeto_Final/BatalhaNavalProjetoFinal/src/main/java/br/com/batalhanaval/JogadorCPU.java
 /workspaces/Batalha_Naval_Projeto_Final/BatalhaNavalProjetoFinal/src/main/java/br/com/batalhanaval/JogadorHumano.java
 /workspaces/Batalha_Naval_Projeto_Final/BatalhaNavalProjetoFinal/src/main/java/br/com/batalhanaval/Jogo.java
 /workspaces/Batalha_Naval_Projeto_Final/BatalhaNavalProjetoFinal/src/main/java/br/com/batalhanaval/Main.java
 /workspaces/Batalha_Naval_Projeto_Final/BatalhaNavalProjetoFinal/src/main/java/br/com/batalhanaval/Navio.java
+/workspaces/Batalha_Naval_Projeto_Final/BatalhaNavalProjetoFinal/src/main/java/br/com/batalhanaval/Partida.java
 /workspaces/Batalha_Naval_Projeto_Final/BatalhaNavalProjetoFinal/src/main/java/br/com/batalhanaval/PartidaRepository.java
 /workspaces/Batalha_Naval_Projeto_Final/BatalhaNavalProjetoFinal/src/main/java/br/com/batalhanaval/ResultadoTiro.java
 /workspaces/Batalha_Naval_Projeto_Final/BatalhaNavalProjetoFinal/src/main/java/br/com/batalhanaval/ResultadoValidacao.java
 /workspaces/Batalha_Naval_Projeto_Final/BatalhaNavalProjetoFinal/src/main/java/br/com/batalhanaval/Tabuleiro.java
+/workspaces/Batalha_Naval_Projeto_Final/BatalhaNavalProjetoFinal/src/main/java/br/com/batalhanaval/TerminalApp.java
 /workspaces/Batalha_Naval_Projeto_Final/BatalhaNavalProjetoFinal/src/main/java/br/com/batalhanaval/ValidadorDeFrota.java

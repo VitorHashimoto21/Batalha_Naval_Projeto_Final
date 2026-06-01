@@ -4,8 +4,7 @@ package br.com.batalhanaval;
 public record Coordenada(int linha, int coluna) {
 
     public static Coordenada parse(String valor) {
-
-        valor = valor.toUpperCase();
+        valor = valor.toUpperCase().trim();
 
         if (valor.length() < 2)
             throw new IllegalArgumentException("Coordenada inválida");
@@ -20,5 +19,10 @@ public record Coordenada(int linha, int coluna) {
             throw new IllegalArgumentException("Coluna inválida");
 
         return new Coordenada(linha, coluna);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%c%d", 'A' + coluna, linha + 1);
     }
 }

@@ -64,12 +64,16 @@ public class Tabuleiro {
 
     public ResultadoTiro atirar(Coordenada c) {
 
-        if (mapa[c.linha()][c.coluna()] == 'N') {
+        char valor = mapa[c.linha()][c.coluna()];
 
+        if (valor == 'X' || valor == 'o') {
+            return ResultadoTiro.AGUA;
+        }
+
+        if (valor == 'N') {
             mapa[c.linha()][c.coluna()] = 'X';
 
             for (Navio n : navios) {
-
                 if (n.contem(c)) {
                     n.acertar();
 
@@ -88,6 +92,10 @@ public class Tabuleiro {
 
     public boolean fimDeJogo() {
         return navios.stream().allMatch(Navio::afundou);
+    }
+
+    public int naviosVivos() {
+        return (int) navios.stream().filter(n -> !n.afundou()).count();
     }
 
     public char[][] getMapa() {

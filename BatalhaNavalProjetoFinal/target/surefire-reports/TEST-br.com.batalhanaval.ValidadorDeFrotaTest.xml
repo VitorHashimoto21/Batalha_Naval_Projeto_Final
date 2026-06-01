@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="br.com.batalhanaval.TabuleiroTest" time="0.131" tests="7" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="br.com.batalhanaval.ValidadorDeFrotaTest" time="0.024" tests="2" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="25"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -54,11 +54,6 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="69.0"/>
   </properties>
-  <testcase name="deveDetectarAgua" classname="br.com.batalhanaval.TabuleiroTest" time="0.015"/>
-  <testcase name="deveDetectarNavioAfundado" classname="br.com.batalhanaval.TabuleiroTest" time="0.036"/>
-  <testcase name="deveDetectarColisaoAoPosicionarNavio" classname="br.com.batalhanaval.TabuleiroTest" time="0.01"/>
-  <testcase name="devePosicionarNavio" classname="br.com.batalhanaval.TabuleiroTest" time="0.01"/>
-  <testcase name="deveDetectarFimDeJogo" classname="br.com.batalhanaval.TabuleiroTest" time="0.006"/>
-  <testcase name="deveDetectarLimiteAoPosicionarNavio" classname="br.com.batalhanaval.TabuleiroTest" time="0.002"/>
-  <testcase name="deveDetectarAcerto" classname="br.com.batalhanaval.TabuleiroTest" time="0.002"/>
+  <testcase name="deveDetectarFrotaIncorreta" classname="br.com.batalhanaval.ValidadorDeFrotaTest" time="0.013"/>
+  <testcase name="deveValidarFrotaCorreta" classname="br.com.batalhanaval.ValidadorDeFrotaTest" time="0.001"/>
 </testsuite>

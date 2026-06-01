@@ -16,8 +16,16 @@ public class Navio {
         this.tamanho = tamanho;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
     public void adicionar(Coordenada c) {
         partes.add(c);
+    }
+
+    public List<Coordenada> getPartes() {
+        return List.copyOf(partes);
     }
 
     public boolean contem(Coordenada c) {
