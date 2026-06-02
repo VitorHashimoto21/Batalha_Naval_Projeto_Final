@@ -63,10 +63,27 @@ public class Config {
 
     public static long gameSeed() {
         String value = props.getProperty("game.seed");
-        if (value == null || value.isBlank()) {
-            return new java.util.Random().nextLong();
+        if (value != null && !value.isBlank()) {
+            return Long.parseLong(value.trim());
         }
-        return Long.parseLong(value);
+
+        String presets = props.getProperty("game.seeds");
+        if (presets != null && !presets.isBlank()) {
+            String[] values = presets.split(",");
+            long[] seeds = new long[values.length];
+            int count = 0;
+            for (String item : values) {
+                item = item.trim();
+                if (!item.isBlank()) {
+                    seeds[count++] = Long.parseLong(item);
+                }
+            }
+            if (count > 0) {
+                return seeds[new java.util.Random().nextInt(count)];
+            }
+        }
+
+        return new java.util.Random().nextLong();
     }
 
     public static String gameMode() {

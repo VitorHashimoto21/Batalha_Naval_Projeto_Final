@@ -17,12 +17,16 @@ public class Jogo {
     private final List<Jogada> jogadas = new ArrayList<>();
 
     public Jogo() {
-        this(new Random(Config.gameSeed()));
+        this(Config.gameSeed());
     }
 
-    public Jogo(Random random) {
+    public Jogo(long seed) {
+        this(new Random(seed), seed);
+    }
+
+    private Jogo(Random random, long seed) {
         this.random = random;
-        this.seed = Config.gameSeed();
+        this.seed = seed;
         this.humano = new JogadorHumano("Jogador");
         this.cpu = new JogadorCPU("CPU", random);
     }

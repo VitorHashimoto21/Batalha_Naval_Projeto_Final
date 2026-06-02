@@ -8,7 +8,6 @@ import java.util.Random;
 public class TerminalApp {
 
     private final PartidaRepository repository = new PartidaRepository();
-    private final Random random = new Random(Config.gameSeed());
 
     public void run() {
         String mode = Config.gameMode();
@@ -52,7 +51,7 @@ public class TerminalApp {
     }
 
     private void jogarPartida() {
-        Jogo jogo = new Jogo(random);
+        Jogo jogo = new Jogo();
         boolean manual = InterfaceTerminal.lerSimNao("Deseja posicionar a frota manualmente? (S/N): ");
 
         if (manual) {
