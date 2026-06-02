@@ -15,18 +15,59 @@ O projeto entrega:
 
 ## Estrutura do projeto
 
-- `BatalhaNavalProjetoFinal/src/main/java/br/com/batalhanaval/`
-  - Código-fonte Java do jogo.
-  - `Config.java`: leitura de propriedades do jogo, incluindo `game.seed` e `game.seeds`.
-  - `Jogo.java`: lógica principal da partida, gerenciamento de turnos e uso do gerador aleatório.
-  - `TerminalApp.java`: interface de texto, menus, histórico e replay.
-  - `PartidaRepository.java`: persistência de partidas e jogadas no banco de dados.
-  - `ResultadoTiro.java`: enumeração dos resultados possíveis de um ataque.
-- `BatalhaNavalProjetoFinal/src/main/resources/game.properties`
-  - Arquivo de configuração do jogo.
-  - Permite definir seed fixa, seeds pré-setadas e outros parâmetros do jogo.
-- `BatalhaNavalProjetoFinal/src/test/java/br/com/batalhanaval/`
-  - Testes automatizados em JUnit 5.
+A raiz do repositório abriga o subprojeto `BatalhaNavalProjetoFinal`, que contém o código-fonte, recursos e testes.
+
+```text
+Batalha_Naval_Projeto_Final/
+├── BatalhaNavalProjetoFinal/
+│   ├── pom.xml
+│   ├── README.md
+│   ├── src/
+│   │   ├── main/
+│   │   │   ├── java/br/com/batalhanaval/
+│   │   │   │   ├── Config.java
+│   │   │   │   ├── Jogo.java
+│   │   │   │   ├── Main.java
+│   │   │   │   ├── TerminalApp.java
+│   │   │   │   ├── PartidaRepository.java
+│   │   │   │   ├── Partida.java
+│   │   │   │   ├── Jogador.java
+│   │   │   │   ├── JogadorCPU.java
+│   │   │   │   ├── JogadorHumano.java
+│   │   │   │   ├── Tabuleiro.java
+│   │   │   │   ├── Navio.java
+│   │   │   │   ├── Coordenada.java
+│   │   │   │   ├── ResultadoTiro.java
+│   │   │   │   ├── Jogada.java
+│   │   │   │   ├── ResultadoValidacao.java
+│   │   │   │   ├── ValidadorDeFrota.java
+│   │   │   │   ├── InterfaceTerminal.java
+│   │   │   │   └── Database.java
+│   │   └── resources/
+│   │       └── game.properties
+│   └── test/
+│       └── java/br/com/batalhanaval/
+│           ├── CoordenadaTest.java
+│           ├── TabuleiroTest.java
+│           └── ValidadorDeFrotaTest.java
+└── README.md
+```
+
+### O que cada parte faz
+
+- `pom.xml`: configura o build Maven, dependências e execução.
+- `src/main/java/br/com/batalhanaval/`: contém toda a lógica do jogo, incluindo:
+  - `Config.java`: carregamento de propriedades de configuração.
+  - `Jogo.java`: inicia e gerencia a partida, usando seed e `Random`.
+  - `TerminalApp.java`: menu, jogo, histórico, replay e interface de terminal.
+  - `PartidaRepository.java`: grava e lê partidas/jogadas no SQLite.
+  - `Partida.java`: objeto de domínio que representa uma partida.
+  - `Jogador*` e `Tabuleiro.java`: tratam de jogadores, frota, tabuleiro e regras.
+  - `ResultadoTiro.java`: enumera resultados de ataque.
+  - `InterfaceTerminal.java`: leitura de entrada e exibição do tabuleiro no terminal.
+  - `Database.java`: cria tabela e gerencia conexão com SQLite.
+- `src/main/resources/game.properties`: define configurações do jogo, como tamanho do tabuleiro, seeds, modo de jogo e persistência.
+- `src/test/java/br/com/batalhanaval/`: testes unitários em JUnit 5 para validar coordenadas, tabuleiro e frota.
 
 ## Como rodar
 
