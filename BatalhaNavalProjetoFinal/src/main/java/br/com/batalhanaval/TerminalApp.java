@@ -62,6 +62,7 @@ public class TerminalApp {
 
         jogo.configurarFrotaAutomaticamente(jogo.getCpu());
         jogo.iniciarPartida();
+        long partidaId = repository.iniciarPartida(jogo);
 
         while (true) {
             InterfaceTerminal.mostrarDoisTabuleiros(
@@ -76,20 +77,28 @@ public class TerminalApp {
                             jogo.naviosVivos(jogo.getCpu()))
             );
 
-            Coordenada tiro = InterfaceTerminal.lerCoordenada("Digite a coordenada do tiro: ");
+            Coordenada tiro = InterfaceTerminal.lerCoordenadaOuVoltar("Digite a coordenada do tiro (0 para voltar ao menu): ");
+            if (tiro == null) {
+                jogo.encerrarPartida();
+                repository.atualizarPartida(partidaId, "ABORTED", jogo.getFim());
+                InterfaceTerminal.mostrarMensagem("Voltando ao menu principal. Partida parcial salva no banco.");
+                return;
+            }
             jogo.getHumano().definirProximoTiro(tiro);
             ResultadoTiro resultado = jogo.atacar(jogo.getHumano(), jogo.getCpu(), tiro);
+            repository.inserirJogada(partidaId, jogo.getJogadas().get(jogo.getJogadas().size() - 1));
             InterfaceTerminal.mensagem(resultado);
 
             if (jogo.fimDeJogo(jogo.getCpu())) {
                 InterfaceTerminal.mostrarMensagem("Vitória do jogador!");
                 jogo.encerrarPartida();
-                salvarPartida(jogo, "Jogador");
+                repository.atualizarPartida(partidaId, "Jogador", jogo.getFim());
                 return;
             }
 
             Coordenada cpuTiro = jogo.getCpu().jogar();
             ResultadoTiro resultadoCpu = jogo.atacar(jogo.getCpu(), jogo.getHumano(), cpuTiro);
+            repository.inserirJogada(partidaId, jogo.getJogadas().get(jogo.getJogadas().size() - 1));
             InterfaceTerminal.mostrarMensagem(
                     "CPU atacou: " + cpuTiro
             );
@@ -98,7 +107,7 @@ public class TerminalApp {
             if (jogo.fimDeJogo(jogo.getHumano())) {
                 InterfaceTerminal.mostrarMensagem("Vitória da CPU!");
                 jogo.encerrarPartida();
-                salvarPartida(jogo, "CPU");
+                repository.atualizarPartida(partidaId, "CPU", jogo.getFim());
                 return;
             }
         }
@@ -251,6 +260,7 @@ public class TerminalApp {
         InterfaceTerminal.mostrarMensagem("Use a opção 2 para ver o histórico salvo.");
         InterfaceTerminal.mostrarMensagem("Use a opção 3 para reproduzir uma partida registrada.");
         InterfaceTerminal.mostrarMensagem("Ao jogar, insira coordenadas no formato A1 até J10.");
+        InterfaceTerminal.mostrarMensagem("Digite 0 a qualquer momento durante a partida para voltar ao menu principal.");
         InterfaceTerminal.mostrarMensagem("A nave será mostrada apenas no seu tabuleiro, não no tabuleiro de ataque.");
     }
 }

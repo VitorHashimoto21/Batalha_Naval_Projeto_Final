@@ -149,6 +149,20 @@ public class InterfaceTerminal {
         }
     }
 
+    public static Coordenada lerCoordenadaOuVoltar(String prompt) {
+        while (true) {
+            String valor = lerTexto(prompt);
+            if (valor.equalsIgnoreCase("0") || valor.equalsIgnoreCase("voltar") || valor.equalsIgnoreCase("menu")) {
+                return null;
+            }
+            try {
+                return Coordenada.parse(valor);
+            } catch (IllegalArgumentException e) {
+                mostrarErro("Coordenada inválida. Use o formato A1 até J10 ou digite 0 para voltar.");
+            }
+        }
+    }
+
     public static void mostrarMensagem(String mensagem) {
         System.out.println(mensagem);
     }

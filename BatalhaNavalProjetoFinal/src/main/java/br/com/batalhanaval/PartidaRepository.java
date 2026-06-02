@@ -31,6 +31,55 @@ public class PartidaRepository {
         }
     }
 
+    public long iniciarPartida(Jogo jogo) {
+        if (!Config.dbEnabled()) {
+            return -1;
+        }
+
+        try (Connection c = Database.conectar()) {
+            c.setAutoCommit(false);
+
+            long partidaId = inserirPartida(c, "", jogo.getInicio(), 0, jogo.getSeed());
+            inserirJogador(c, partidaId, jogo.getHumano());
+            inserirJogador(c, partidaId, jogo.getCpu());
+            c.commit();
+
+            return partidaId;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return -1;
+        }
+    }
+
+    public void atualizarPartida(long partidaId, String vencedor, long fim) {
+        if (!Config.dbEnabled() || partidaId < 0) {
+            return;
+        }
+
+        try (Connection c = Database.conectar();
+             PreparedStatement ps = c.prepareStatement(
+                     "UPDATE partidas SET fim = ?, vencedor = ? WHERE id = ?")) {
+            ps.setLong(1, fim);
+            ps.setString(2, vencedor);
+            ps.setLong(3, partidaId);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void inserirJogada(long partidaId, Jogada jogada) {
+        if (!Config.dbEnabled() || partidaId < 0) {
+            return;
+        }
+
+        try (Connection c = Database.conectar()) {
+            inserirJogada(c, partidaId, jogada);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     private long inserirPartida(Connection c,
                                 String vencedor,
                                 long inicio,
